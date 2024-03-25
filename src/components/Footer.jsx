@@ -7,8 +7,8 @@ function Footer() {
       <div className="screen-max-width">
         <div>
           <p className="font-semibold text-gray text-xs">
-            More ways to shop: <span className="underline text-blue">Find an Apple Store </span>
-            or <span className="underline text-blue">other retailer</span> near you.
+            More ways to shop: <span className="underline text-blue cursor-pointer">Find an Apple Store </span>
+            or <span className="underline text-blue cursor-pointer">other retailer</span> near you.
           </p>
           <p className="font-semibold text-gray text-xs">Or call 000800-040-1966</p>
         </div>
@@ -17,13 +17,13 @@ function Footer() {
 
         <div className="flex md:flex-row flex-col md:items-center justify-between">
           <p className="font-semibold text-gray text-xs">Copright @ 2024 Apple Inc. All rights reserved.</p>
-          <div className="flex">
+          <ul className="flex flex-wrap max-sm:pt-3">
             {footerLinks.map((link, i) => (
-              <p key={link} className="font-semibold text-gray text-xs">
+              <li key={link} className="font-semibold text-gray text-xs cursor-pointer">
                 {link} {i + 1 !== footerLinks.length && <span className="mx-2"> | </span>}
-              </p>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
     </footer>

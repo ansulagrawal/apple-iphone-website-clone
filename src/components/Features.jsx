@@ -4,11 +4,14 @@ import { animateWithGsap } from '../utils/animations';
 import { explore1Img, explore2Img, exploreVideo } from '../utils';
 import gsap from 'gsap';
 
-function Features() {
+const Features = () => {
   const videoRef = useRef();
 
   useGSAP(() => {
-    animateWithGsap('#exploreVideo', { onComplete: () => videoRef.current.play() }, { toggleActions: 'play pause reverse restart', start: '-10% bottom' });
+    gsap.to('#exploreVideo', {
+      scrollTrigger: { trigger: '#exploreVideo', toggleActions: 'play pause reverse restart', start: '-10% bottom' },
+      onComplete: () => videoRef.current.play(),
+    });
 
     animateWithGsap('#features_title', { y: 0, opacity: 1 });
     animateWithGsap('.g_grow', { scale: 1, opacity: 1, ease: 'power1' }, { scrub: 5.5 });
@@ -26,8 +29,11 @@ function Features() {
 
         <div className="flex flex-col justify-center items-center overflow-hidden">
           <div className="mt-32 mb-24 pl-24">
-            <h3 className="text-5xl lg:text-7xl font-semibold">iPhone.</h3>
-            <h3 className="text-5xl lg:text-7xl font-semibold">Forged in titanium.</h3>
+            <h3 className="text-5xl lg:text-7xl font-semibold">
+              iPhone.
+              <br />
+              Forged in titanium.
+            </h3>
           </div>
 
           <div className="flex-center flex-col sm:px-10">
@@ -68,6 +74,6 @@ function Features() {
       </div>
     </section>
   );
-}
+};
 
 export default Features;

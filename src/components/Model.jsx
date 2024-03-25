@@ -1,14 +1,13 @@
 import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import ModelView from './ModelView';
-import { useEffect, useRef, useState } from 'react';
-import { yellowImg } from '../utils';
-
-import * as THREE from 'three';
-import { Canvas } from '@react-three/fiber';
 import { View } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import gsap from 'gsap';
+import { useEffect, useRef, useState } from 'react';
+import * as THREE from 'three';
 import { models, sizes } from '../constants';
+import { yellowImg } from '../utils';
 import { animateWithGsap, animateWithGsapTimeline } from '../utils/animations';
+import ModelView from './ModelView';
 
 const Model = () => {
   const [size, setSize] = useState('small');
@@ -34,17 +33,9 @@ const Model = () => {
 
   useEffect(() => {
     if (size === 'large') {
-      animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', {
-        transform: 'translateX(-100%)',
-        duration: 2,
-      });
-    }
-
-    if (size === 'small') {
-      animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', {
-        transform: 'translateX(0)',
-        duration: 2,
-      });
+      animateWithGsapTimeline(tl, small, smallRotation, '#view1', '#view2', { transform: 'translateX(-100%)', duration: 2 });
+    } else {
+      animateWithGsapTimeline(tl, large, largeRotation, '#view2', '#view1', { transform: 'translateX(0)', duration: 2 });
     }
   }, [size]);
 

@@ -9,7 +9,7 @@ const HowItWorks = () => {
 
   useGSAP(() => {
     gsap.from('#chip', {
-      scrollTrigger: { trigger: '#chip', start: '20% bottom', toggleActions: 'restart reverse restart reverse' },
+      scrollTrigger: { trigger: '#chip', start: '20% bottom' },
       opacity: 0,
       scale: 2,
       duration: 2,
@@ -17,7 +17,6 @@ const HowItWorks = () => {
     });
 
     animateWithGsap('#frameVideo', { onComplete: () => videoRef.current.play() }, { toggleActions: 'play pause reverse restart', start: '-10% bottom' });
-
 
     animateWithGsap('.g_fadeIn', { opacity: 1, y: 0, duration: 1, ease: 'power2.inOut' });
   }, []);
@@ -54,7 +53,7 @@ const HowItWorks = () => {
 
         <div className="hiw-text-container">
           <div className="flex flex-1 justify-center flex-col">
-            <p className="hiw-text g_fadeIn">
+            <p className="hiw-text g_fadeIn mb-5">
               A17 Pro is an entirely new class of iPhone chip that delivers our <span className="text-white">best graphic performance by far</span>.
             </p>
 
